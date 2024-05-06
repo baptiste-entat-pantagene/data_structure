@@ -1,0 +1,12 @@
+
+
+
+# Unit Tests SOURCE
+#list(REMOVE_ITEM SOURCE "main.c")
+file(GLOB TEST_SRC CONFIGURE_DEPENDS "src/*.c")
+
+# Unit Tests EXE
+add_executable(Tests ${TEST_SRC})
+target_include_directories(Tests PUBLIC include ../LIB/include)
+add_dependencies(Tests BPlus_Tree)
+target_link_libraries(Tests PRIVATE BPlus_Tree)
